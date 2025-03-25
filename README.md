@@ -1,6 +1,6 @@
 # 🌍Diffusion World Models in Reinforcement Learning (RL) - Survey 
 
-![Image of Timeline](figures/timeline_draft_1.pdf)
+![Image of Timeline](figures/timeline_draft_1-1.png)
 
 This repository is a comprehensive resource hub for ongoing survey on **Diffusion Models in World Modeling for RL**. It includes:
 
