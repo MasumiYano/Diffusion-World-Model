@@ -5,8 +5,7 @@
 ---
 
 ## 📝 Summary of the World Models
-The World Models paper intorduces a novel reinforcement learning framework that enables 
-agent to train in a simulated environment from past experience, improving sample efficiecy. 
+The World Models paper intorduces a novel reinforcement learning framework that enables agent to train in a simulated environment from past experience, improving sample efficiecy. 
 Instead of relying on direct interacitons with the real environment, the agent learns a compressed
 latent representation of the observations using Varial Autoencoder (VAEs) and predicts future states 
 and reward swith an MDN-RNN (Mixture Density Network-based Recurrent Neural Network). A simple linear

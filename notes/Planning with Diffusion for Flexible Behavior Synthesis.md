@@ -28,42 +28,23 @@ This paper proposes Diffuser, a novel framework for trajectory optimization in r
 ---
 
 ## 💻 Breakdown of the implementation
-- Model Type: Denoising Diffusion Probabilistic Model (DDPM)
-    - Chosen for its strong generative capabilities and iterative denoising suited for optimization style sampling
-
-- Input Representation
-    - 2D matrix of interleaved states and actions, one column per timestep.
-
-- Architecture:
-    - **U-Net Style** with 1D Temporal Convolutions
-    - Residual blocks with **Group Norm** and **Mish** activaiton
-    - Fully convolutional in time to allow variable planning horizons
-
-- Training Objective: Predict the noise added during the forward process:
-$$
-L(\theta) = \mathbb{E}_{i, \epsilon, \tau^0}[||\epsilon - \epsilon_{\theta}(\tau^i, i)||^2]
-$$
-
-- Planning Methods:
-
-    - Classifier-Guided Sampling (for reward-maximization): Incorporates gradients of a learned return predictor $\nabla\mathcal{J}_{\phi}$ during denoising.
-    - Inpainting (for constraints): Replaces parts of sampled trajectories to match fixed goal/start conditions
+Coming soon...
 
 ---
 
 ## 🧪 Experiments & Result
 
 ### Benchmarks:
-- Maze2D (Fu et al., 2020): Sparse-reward navigatio tasks
+- Maze2D (Fu et al., 2020): Sparse-reward navigatio tasks [^1]
 - Multi2D: Multi-task version with randomized goals.
 - Block Stacking: Test-time flexible planning (conditional/unconditional/rearrangement).
 - D4RL Locomotion: Standard offline RL benchmark with varying data quality. 
 
 ### Baselines:
-- Model-Free: **CQL**, **IQL**, **BCQ**
-- Return-Conditioning: **Decision Transformer (DT)**
-- Model-Based: **Trajectory Transformer (TT), MOPO, MORel, MBOP**
-- Traditional Planning: **MPPI**
+- Model-Free: **CQL**[^2], **IQL**[^3], **BCQ**[^4]
+- Return-Conditioning: **Decision Transformer (DT)** [^5]
+- Model-Based: **Trajectory Transformer (TT)**[^6], **MOPO**[^7], **MORel**[^8], **MBOP**[^9]
+- Traditional Planning: **MPPI**[^10]
 
 ### Results
 **Maze2D and Multi2D Performance (Long-Horizon Planning)**:
@@ -78,3 +59,13 @@ $$
 ---
 
 ## Reference
+[^1]: Fu J., Kumar, A., et al., (2020). *D4RL: Datasets for deep data-driven reinforcement learning*. arXiv preprint at *arXiv:2004.072.07219* 2020
+[^2]: Kumar, A., Zhou, A. et al., (2020). *Conservative Q-learning for offline reinforcement learnin*. NeurIPS 2020.
+[^3]: Kostriv, I., Nair, A., et al., (2022). *Offline reinforcement learning with implicit Q-learing* ICLR 2022
+[^4]: Fujimoto , S., Meger, D., et al., (2019) *Off-policy deep reinforcement learning without exploration* ICML 2019
+[^5]: Chen, L., Lu, K., et al., (2021), *Decision Transformer: Reinforcement learning via sequence modeling* NeurIPS 2021
+[^6]: Janner, M., Li, Q., et al., (2021) *Offline reinforcement learning as one big sequence modeling problem* NeurIPS 2021
+[^7]: Yu, T., Thomas, G., et al., (2020) *MOPO: Model-based offline policy optimization* NeurIPS 20220
+[^8]: Kidambi, R., Rajeswaran A., (2020) *MOReL: Model-based offline reinforcement learning* NeurIPS 2020
+[^9]: Argenson, A., Dulac-Arnold, G (2021) *Model-based offline planning* ICLR 2021
+[^10]: Williams, G., Aldrich, A., et al., (2015) *Model predictive path integral control using covariance variable importance sampling* arXiv preprint at arXiv:1509.01149 2015
