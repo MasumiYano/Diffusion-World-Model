@@ -1,4 +1,4 @@
-# 🌍Diffusion World Models in Reinforcement Learning (RL) - Survey 
+# 🌍Diffusion World Models: A Comprehensive Survey 
 
 ![Image of Timeline](figures/timeline_draft_1-1.png)
 
